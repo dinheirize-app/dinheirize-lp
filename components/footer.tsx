@@ -14,7 +14,7 @@ export function Footer() {
         {/* Brand Column */}
         <div className="space-y-4">
           <Link href="/" className="text-lg font-bold text-[#FAFCF9]">
-            Dz<span className="text-primary">.</span>inheirize
+            Dinheirize
           </Link>
           <p className="text-xs text-muted-foreground">dinheirize.com</p>
           <p className="max-w-xs">

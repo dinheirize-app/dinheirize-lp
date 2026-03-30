@@ -19,7 +19,7 @@ export function Navigation() {
       <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-full">
         {/* Brand */}
         <Link href="/" className="text-2xl font-black tracking-tighter text-white">
-          Dz<span className="text-primary">.</span>inheirize
+          Dinheirize
         </Link>
 
         {/* Desktop Links */}
