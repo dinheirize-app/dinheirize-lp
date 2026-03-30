@@ -10,7 +10,7 @@ import { SectionFade } from "@/components/section-fade"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background scroll-smooth">
+    <main className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
       <SectionFade><HowItWorks /></SectionFade>
