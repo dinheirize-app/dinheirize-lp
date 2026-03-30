@@ -1,42 +1,44 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Loader2, CheckCircle } from "lucide-react"
+import { useState } from "react";
+import { Loader2, CheckCircle } from "lucide-react";
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function EmailCaptureCTA() {
-  const [email, setEmail] = useState("")
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!EMAIL_REGEX.test(email)) {
-      setStatus("error")
-      return
+      setStatus("error");
+      return;
     }
 
-    setStatus("loading")
+    setStatus("loading");
 
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
-      })
-      const data = await res.json()
+      });
+      const data = await res.json();
 
       if (data.success) {
-        setStatus("success")
-        setEmail("")
+        setStatus("success");
+        setEmail("");
       } else {
-        setStatus("error")
+        setStatus("error");
       }
     } catch {
-      setStatus("error")
+      setStatus("error");
     }
-  }
+  };
 
   return (
     <section id="waitlist" className="max-w-7xl mx-auto px-6 py-20">
@@ -57,7 +59,7 @@ export function EmailCaptureCTA() {
           </span>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-off-white leading-tight">
-            Pronto para parar de se perguntar para onde foi o dinheiro?
+            Pronto para nunca mais se perguntar para onde foi seu dinheiro?
           </h2>
 
           <p className="text-muted-foreground text-lg">
@@ -65,14 +67,18 @@ export function EmailCaptureCTA() {
           </p>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto pt-2" noValidate>
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-md mx-auto pt-2"
+            noValidate
+          >
             {status === "success" ? (
               <div
                 role="alert"
                 className="flex items-center justify-center gap-3 bg-primary/10 border border-primary/20 rounded-xl px-6 py-4 text-foreground font-medium"
               >
-                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                ✓ Você está na lista! Avisaremos em primeiro lugar.
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />✓
+                Você está na lista! Avisaremos em primeiro lugar.
               </div>
             ) : (
               <div className="flex flex-col sm:flex-row gap-3">
@@ -81,8 +87,8 @@ export function EmailCaptureCTA() {
                   placeholder="seu@email.com"
                   value={email}
                   onChange={(e) => {
-                    setEmail(e.target.value)
-                    if (status === "error") setStatus("idle")
+                    setEmail(e.target.value);
+                    if (status === "error") setStatus("idle");
                   }}
                   className="flex-1 bg-[#0A0F0D] border border-[#3E4A3D]/40 rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                   disabled={status === "loading"}
@@ -97,7 +103,10 @@ export function EmailCaptureCTA() {
                 >
                   {status === "loading" ? (
                     <>
-                      <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                      <Loader2
+                        className="h-4 w-4 animate-spin"
+                        aria-hidden="true"
+                      />
                       Enviando...
                     </>
                   ) : (
@@ -116,5 +125,5 @@ export function EmailCaptureCTA() {
         </div>
       </div>
     </section>
-  )
+  );
 }

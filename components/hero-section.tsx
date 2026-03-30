@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { ArrowRight, Shield, MessageCircle, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { WhatsAppMockup } from "@/components/whatsapp-mockup"
+import Image from "next/image";
+import { ArrowRight, Shield, MessageCircle, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { WhatsAppMockup } from "@/components/whatsapp-mockup";
 
-const AVATAR_COUNT = 5
+const AVATAR_COUNT = 5;
 
 export function HeroSection() {
   return (
@@ -24,12 +24,16 @@ export function HeroSection() {
           {/* Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.92] text-white text-balance">
             Finalmente no <br />
-            <em className="not-italic italic font-light text-[#4ADE80]">controle</em> do seu dinheiro.
+            <em className="not-italic italic font-light text-[#4ADE80]">
+              controle
+            </em>{" "}
+            do seu dinheiro.
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
-            O copiloto financeiro que fala com você onde você já está — no WhatsApp.
+            O copiloto financeiro que fala com você onde você já está — no
+            WhatsApp.
           </p>
 
           {/* CTAs */}
@@ -78,22 +82,33 @@ export function HeroSection() {
                   </div>
                 ))}
               </div>
-              <span className="text-sm font-bold text-white">247 pessoas na lista de espera</span>
+              <span className="text-sm font-bold text-white">
+                247 pessoas na lista de espera
+              </span>
             </div>
 
             {/* Trust Badges */}
             <div className="flex flex-wrap gap-5 pt-1">
               <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-                <Shield className="h-4 w-4 text-primary flex-shrink-0" aria-hidden="true" />
-                🔒 Dados protegidos
+                <Shield
+                  className="h-4 w-4 text-primary flex-shrink-0"
+                  aria-hidden="true"
+                />
+                Dados protegidos
               </div>
               <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-                <MessageCircle className="h-4 w-4 text-primary flex-shrink-0" aria-hidden="true" />
-                💬 Funciona no WhatsApp
+                <MessageCircle
+                  className="h-4 w-4 text-primary flex-shrink-0"
+                  aria-hidden="true"
+                />
+                Funciona no WhatsApp
               </div>
               <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-                <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" aria-hidden="true" />
-                ✅ Grátis para começar
+                <CheckCircle
+                  className="h-4 w-4 text-primary flex-shrink-0"
+                  aria-hidden="true"
+                />
+                Grátis para começar
               </div>
             </div>
           </div>
@@ -105,5 +120,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
