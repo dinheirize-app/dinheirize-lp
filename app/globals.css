@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Dinheirize Theme - Dark mode by default */
+:root {
+  /* Background colors */
+  --background: #0A0F0D;
+  --foreground: #DFE4E0;
+  
+  /* Card/Container colors */
+  --card: #1C211E;
+  --card-foreground: #DFE4E0;
+  --popover: #1C211E;
+  --popover-foreground: #DFE4E0;
+  
+  /* Primary - Dinheirize Green */
+  --primary: #16A34A;
+  --primary-foreground: #FFFFFF;
+  --primary-dim: #62DF7D;
+  --primary-container: #1CA64D;
+  
+  /* Secondary */
+  --secondary: #181D1A;
+  --secondary-foreground: #DFE4E0;
+  
+  /* Muted */
+  --muted: #262B29;
+  --muted-foreground: #6B7A6E;
+  
+  /* Accent */
+  --accent: #313633;
+  --accent-foreground: #DFE4E0;
+  
+  /* Destructive */
+  --destructive: #FF4444;
+  --destructive-foreground: #FFFFFF;
+  
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.05);
+  --input: #181D1A;
+  --ring: #16A34A;
+  
+  /* Surface colors */
+  --surface: #0F1412;
+  --surface-container: #1C211E;
+  --surface-container-low: #181D1A;
+  --surface-container-high: #262B29;
+  --surface-variant: #313633;
+  
+  /* Outline */
+  --outline: #879485;
+  --outline-variant: #3E4A3D;
+  
+  /* Chart colors */
+  --chart-1: #62DF7D;
+  --chart-2: #4DE082;
+  --chart-3: #1CA64D;
+  --chart-4: #D2BBFF;
+  --chart-5: #C9A84C;
+  
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #0A0F0D;
+  --foreground: #DFE4E0;
+  --card: #1C211E;
+  --card-foreground: #DFE4E0;
+  --popover: #1C211E;
+  --popover-foreground: #DFE4E0;
+  --primary: #16A34A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #181D1A;
+  --secondary-foreground: #DFE4E0;
+  --muted: #262B29;
+  --muted-foreground: #6B7A6E;
+  --accent: #313633;
+  --accent-foreground: #DFE4E0;
+  --destructive: #FF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.05);
+  --input: #181D1A;
+  --ring: #16A34A;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Dinheirize custom colors */
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-variant: var(--surface-variant);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-primary-dim: var(--primary-dim);
+  --color-primary-container: var(--primary-container);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Dinheirize custom styles */
+.hero-gradient {
+  background: linear-gradient(145deg, #62DF7D 0%, #1CA64D 100%);
+}
+
+.inner-bezel {
+  border-top: 1px solid rgba(127, 252, 151, 0.3);
+}
+
+.glass-nav {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glow-primary {
+  box-shadow: 0px 20px 40px rgba(22, 163, 74, 0.12);
+}
