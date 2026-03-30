@@ -8,8 +8,8 @@ export function WhatsAppMockup() {
       <div className="relative w-full max-w-[320px] bg-[#1C211E] rounded-[3rem] border-[8px] border-[#262B29] overflow-hidden shadow-2xl">
         {/* WhatsApp Top Bar */}
         <div className="bg-[#075E54] p-4 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-bold">
-            D
+          <div className="w-10 h-10 rounded-full bg-[#16A34A] flex items-center justify-center text-white font-black text-xs tracking-tight">
+            Dz
           </div>
           <div>
             <p className="text-sm font-bold text-white">Dinheirize IA</p>

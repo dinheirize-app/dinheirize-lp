@@ -14,8 +14,9 @@ export function Footer() {
         {/* Brand Column */}
         <div className="space-y-4">
           <Link href="/" className="text-lg font-bold text-[#FAFCF9]">
-            Dinheirize
+            Dz<span className="text-primary">.</span>inheirize
           </Link>
+          <p className="text-xs text-muted-foreground">dinheirize.com</p>
           <p className="max-w-xs">
             A plataforma financeira feita para quem não quer perder tempo com
             planilhas.
@@ -64,7 +65,7 @@ export function Footer() {
           <h5 className="text-[#FAFCF9] font-bold">Apoio</h5>
           <p>Feito com amor no Brasil para o mundo.</p>
           <p className="mt-auto">
-            © 2024 Dinheirize. Seu dinheiro no próximo nível.
+            © 2025 Dinheirize. Seu dinheiro no próximo nível.
           </p>
         </div>
       </div>

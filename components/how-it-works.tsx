@@ -1,45 +1,45 @@
-import { MessageCircle, Sparkles, Trophy } from "lucide-react"
+import { MessageCircle, Sparkles, TrendingUp } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 const steps = [
   {
     number: "01",
     icon: MessageCircle,
-    title: "Conecte seu WhatsApp",
-    description: "Sem apps pesados. Basta um \"Oi\" para nossa IA e você já começa a organizar sua vida.",
+    title: "Mande uma mensagem",
+    description: "Diga 'gastei 45 no almoço' direto no WhatsApp. Sem formulário, sem app pra abrir.",
   },
   {
     number: "02",
     icon: Sparkles,
-    title: "Inteligência Ativa",
-    description: "Nossa IA categoriza gastos automaticamente e te avisa quando você está saindo do planejado.",
+    title: "A IA cuida do resto",
+    description: "Categorização automática, XP creditado, streak atualizado. Em menos de 2 segundos.",
   },
   {
     number: "03",
-    icon: Trophy,
-    title: "Liberdade Financeira",
-    description: "Acompanhe seu progresso, ganhe XP e veja seu patrimônio crescer mês a mês.",
+    icon: TrendingUp,
+    title: "Veja seu dinheiro crescer",
+    description: "Relatório semanal, missões diárias e alertas antes do problema acontecer.",
   },
 ]
 
 export function HowItWorks() {
   return (
-    <section className="bg-[#111810] py-24">
+    <section id="how-it-works" className="bg-[#111810] py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <p className="text-sm font-bold text-primary tracking-widest uppercase">
-            Fluxo Simples
+            Simples assim
           </p>
           <h2 className="text-4xl font-bold tracking-tight text-white">
             Como o Dinheirize funciona?
           </h2>
         </div>
-        
+
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step) => (
-            <Card 
+            <Card
               key={step.number}
               className="bg-card border-white/5 rounded-2xl"
             >

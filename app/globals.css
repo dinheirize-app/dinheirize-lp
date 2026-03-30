@@ -86,8 +86,18 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Geist', sans-serif;
+  --font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+
+  /* Dinheirize Brand Palette */
+  --color-green-main: #16A34A;
+  --color-green-neon: #4ADE80;
+  --color-green-dark: #0A0F0D;
+  --color-green-800: #15803D;
+  --color-gold: #C9A84C;
+  --color-amber-brand: #D97706;
+  --color-purple-brand: #7C3AED;
+  --color-off-white: #FAFCF9;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -136,6 +146,31 @@
   body {
     @apply bg-background text-foreground antialiased;
   }
+}
+
+/* Fade-in animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.section-visible {
+  animation: fade-in-up 0.6s ease-out forwards;
 }
 
 /* Dinheirize custom styles */
