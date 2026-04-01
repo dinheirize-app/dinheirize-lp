@@ -1,57 +1,89 @@
-import { Check } from "lucide-react"
+import { Check, Clock } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const plans = [
   {
+    label: "Gratuito",
     name: "Free",
     price: "0",
+    period: "/mês",
     features: [
-      "50 lançamentos/mês",
-      "3 missões ativas",
-      "Streak básico",
+      { text: "10 lançamentos/mês", available: true },
+      { text: "1 missão ativa", available: true },
+      { text: "Relatório mensal", available: true },
+      { text: "Streak básico", available: true },
     ],
     featured: false,
     buttonText: "Começar grátis",
     buttonHref: "#waitlist",
+    status: "available" as const,
   },
   {
+    label: "Entrada",
     name: "WhatsApp",
-    price: "9",
+    price: "14,90",
+    period: "/mês",
+    promoPrice: "9,90",
+    savingsBadge: "57% mais barato que apps tradicionais",
     features: [
-      "Só o bot, sem limites",
-      "Categorização com IA",
-      "Relatório semanal",
-    ],
-    featured: false,
-    buttonText: "Assinar",
-    buttonHref: "#waitlist",
-  },
-  {
-    name: "Essencial",
-    price: "19",
-    features: [
-      "WhatsApp + painel web",
-      "Missões ilimitadas",
-      "Alertas inteligentes",
-      "Score Dinheirize",
+      { text: "Lançamentos ilimitados", available: true },
+      { text: "3 missões simultâneas", available: true },
+      { text: "Categorização IA", available: true },
+      { text: "Relatório semanal", available: true },
+      { text: "Modo Confissão", available: true },
+      { text: "Quanto custa sua hora", available: true },
+      { text: "Alerta de padrão", available: true },
+      { text: "Streak com emoji 🔥", available: true },
+      { text: "Score Dinheirize", available: true },
     ],
     featured: true,
     badge: "Mais Popular",
-    buttonText: "Começar agora",
+    buttonText: "Assinar agora",
     buttonHref: "#waitlist",
+    status: "available" as const,
+    statusLabel: "🟢 Disponível agora",
+    promo: "🔥 Oferta limitada: 200 vagas — R$9,90/mês nos primeiros 3 meses (cupom LAUNCH990)",
   },
   {
-    name: "Casal",
-    price: "29",
+    label: "Completo",
+    name: "Essencial",
+    price: "29,90",
+    period: "/mês",
+    savingsBadge: "33% mais barato que a concorrência",
     features: [
-      "2 perfis conectados",
-      "Dashboard conjunto",
-      "Lembretes para os dois",
-      "Tudo do Essencial",
+      { text: "Tudo do WhatsApp +", available: true, bold: true as const },
+      { text: "Dashboard web", available: false },
+      { text: "App mobile (PWA)", available: false },
+      { text: "Score Dinheirize visual", available: false },
+      { text: "Ligas até Esmeralda", available: false },
+      { text: "Gráficos e relatórios", available: false },
+      { text: "Histórico ilimitado", available: false },
     ],
     featured: false,
-    buttonText: "Assinar",
+    buttonText: "Notificar quando lançar",
     buttonHref: "#waitlist",
+    status: "soon" as const,
+    statusLabel: "🔜 Lançamento: Maio 2026",
+    incentive: "💎 Entre na lista e ganhe 3 meses grátis no lançamento",
+  },
+  {
+    label: "Para dois",
+    name: "Casal",
+    price: "49,90",
+    period: "/mês",
+    features: [
+      { text: "2 perfis conectados", available: false },
+      { text: "Dashboard conjunto", available: false },
+      { text: "Contas compartilhadas", available: false },
+      { text: "Lembrete para os dois", available: false },
+      { text: "Missões em dupla", available: false },
+      { text: "Visão consolidada", available: false },
+    ],
+    featured: false,
+    buttonText: "Lista de espera",
+    buttonHref: "#waitlist",
+    status: "development" as const,
+    statusLabel: "🔜 Em desenvolvimento",
   },
 ]
 
@@ -75,10 +107,12 @@ export function PricingSection() {
           <div
             key={plan.name}
             className={cn(
-              "flex-shrink-0 w-[260px] md:w-auto snap-center p-8 rounded-2xl flex flex-col relative",
+              "flex-shrink-0 w-[280px] md:w-auto snap-center p-8 rounded-2xl flex flex-col relative",
               plan.featured
                 ? "border-2 border-primary bg-[#262B29] shadow-2xl shadow-primary/10 md:scale-105 md:z-10"
-                : "border border-[#3E4A3D]/20 bg-card"
+                : plan.status === "soon" || plan.status === "development"
+                  ? "border border-[#3E4A3D]/20 bg-card opacity-85"
+                  : "border border-[#3E4A3D]/20 bg-card"
             )}
           >
             {plan.badge && (
@@ -87,20 +121,72 @@ export function PricingSection() {
               </div>
             )}
 
+            {/* Plan label */}
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1">
+              {plan.label}
+            </p>
+
             <h4 className={cn("text-lg font-bold mb-1", plan.featured ? "text-primary" : "text-foreground")}>
               {plan.name}
             </h4>
 
-            <div className="mb-6">
-              <span className="text-4xl font-black text-foreground">R${plan.price}</span>
-              <span className="text-muted-foreground text-sm">/mês</span>
-            </div>
+            {"promoPrice" in plan && plan.promoPrice ? (
+              <div className="mb-4">
+                <p className="text-sm text-muted-foreground/50 mb-1">
+                  De <span className="line-through opacity-60">R${plan.price}</span>/mês
+                </p>
+                <span className="text-5xl font-black text-primary drop-shadow-[0_0_20px_rgba(74,222,128,0.3)]">
+                  R${plan.promoPrice}
+                </span>
+                <span className="text-muted-foreground text-lg ml-1">{plan.period}</span>
+                <div className="mt-2">
+                  <span className="inline-block bg-gradient-to-r from-[#C9A84C] to-[#D97706] text-[#0A0F0D] text-xs font-bold px-3 py-1 rounded-full">
+                    💰 Economize R$15 nos primeiros 3 meses
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div className="mb-2">
+                <span className="text-4xl font-black text-foreground">R${plan.price}</span>
+                <span className="text-muted-foreground text-sm">{plan.period}</span>
+                {"savingsBadge" in plan && plan.savingsBadge && (
+                  <p className="text-xs text-[#4ADE80] font-semibold mt-1">
+                    {plan.savingsBadge}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Status Badge */}
+            {plan.statusLabel && (
+              <div
+                className={cn(
+                  "inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full mb-4 w-fit",
+                  plan.status === "available"
+                    ? "bg-primary/10 text-primary border border-primary/20"
+                    : plan.status === "soon"
+                      ? "bg-[#D97706]/10 text-[#D97706] border border-[#D97706]/20"
+                      : "bg-[#7C3AED]/10 text-[#7C3AED] border border-[#7C3AED]/20"
+                )}
+              >
+                {plan.statusLabel}
+              </div>
+            )}
 
             <ul className="space-y-3 mb-8 flex-1">
               {plan.features.map((feat) => (
-                <li key={feat} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                  <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                  {feat}
+                <li key={feat.text} className={cn(
+                  "flex items-start gap-2.5 text-sm",
+                  feat.available ? "text-muted-foreground" : "text-muted-foreground/60"
+                )}>
+                  {feat.available ? (
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                  ) : (
+                    <Clock className="h-4 w-4 text-muted-foreground/40 flex-shrink-0 mt-0.5" strokeWidth={2} />
+                  )}
+                  <span className={"bold" in feat && feat.bold ? "font-bold text-foreground" : ""}>
+                    {!feat.available && "⏳ "}{feat.text}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -117,6 +203,20 @@ export function PricingSection() {
             >
               {plan.buttonText}
             </a>
+
+            {"promo" in plan && plan.promo && (
+              <div className="mt-4 text-center">
+                <span className="inline-block bg-[#D97706] text-white text-[10px] font-bold px-3 py-1 rounded-full">
+                  🔥 Oferta limitada: 200 vagas · cupom LAUNCH990
+                </span>
+              </div>
+            )}
+
+            {plan.incentive && (
+              <p className="text-xs text-[#C9A84C] font-semibold mt-4 text-center">
+                {plan.incentive}
+              </p>
+            )}
           </div>
         ))}
       </div>

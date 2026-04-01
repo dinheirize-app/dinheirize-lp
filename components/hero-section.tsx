@@ -13,11 +13,11 @@ export function HeroSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Text Column */}
         <div className="space-y-8 fade-in-up">
-          {/* Badge */}
+          {/* Beta Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-card border border-outline-variant/20">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-xs font-bold tracking-widest text-primary uppercase">
-              Copiloto Financeiro no WhatsApp
+              🚀 Beta · Lançamento Abril 2026
             </span>
           </div>
 
@@ -60,8 +60,18 @@ export function HeroSection() {
             </Button>
           </div>
 
+          {/* VIP Incentive */}
+          <div className="px-4 py-3 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/30 space-y-1">
+            <p className="text-sm text-[#C9A84C] font-semibold">
+              💎 <strong>Primeiros 200:</strong> R$9,90/mês por 3 meses (depois R$14,90)
+            </p>
+            <p className="text-xs text-[#C9A84C]/80">
+              + Bônus: 3 meses grátis do Essencial quando lançar em Maio
+            </p>
+          </div>
+
           {/* Social Proof */}
-          <div className="pt-4 space-y-4">
+          <div className="pt-2 space-y-4">
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
                 {Array.from({ length: AVATAR_COUNT }).map((_, i) => (
