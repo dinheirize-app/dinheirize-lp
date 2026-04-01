@@ -24,6 +24,10 @@ const features = [
     title: "Score Dinheirize",
     description:
       "0 a 1000 baseado no seu comportamento. Público, competitivo, viciante.",
+    badges: [
+      { label: "Já disponível no bot", type: "available" as const },
+      { label: "Dashboard visual: Maio 2026", type: "soon" as const },
+    ],
   },
 ]
 
@@ -51,6 +55,22 @@ export function FeaturesSection() {
               </span>
               <h3 className="text-xl font-bold text-white">{feature.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              {feature.badges && (
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {feature.badges.map((badge) => (
+                    <span
+                      key={badge.label}
+                      className={
+                        badge.type === "available"
+                          ? "inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                          : "inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#D97706]/10 text-[#D97706] border border-[#D97706]/20"
+                      }
+                    >
+                      {badge.type === "available" ? "🟢" : "🔜"} {badge.label}
+                    </span>
+                  ))}
+                </div>
+              )}
             </CardContent>
           </Card>
         ))}

@@ -38,13 +38,6 @@ export function Navigation() {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
           <Button
-            variant="ghost"
-            className="text-white hover:text-primary"
-            aria-label="Entrar na conta"
-          >
-            Entrar
-          </Button>
-          <Button
             className="hero-gradient inner-bezel text-white font-bold shadow-[0px_10px_20px_rgba(22,163,74,0.2)] rounded-xl hover:opacity-90 transition-opacity"
             aria-label="Começar grátis no Dinheirize"
             asChild

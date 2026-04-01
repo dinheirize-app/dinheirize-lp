@@ -3,21 +3,21 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const testimonials = [
   {
-    quote: "Eu sempre desisti de apps de finanças porque era chato registrar. Com o Dinheirize no WhatsApp, eu só mando um áudio e ele organiza tudo.",
+    quote: "Eu sempre desisti de apps de finanças porque era chato registrar. Com o Dinheirize no WhatsApp, eu só mando uma mensagem e ele organiza tudo.",
     name: "Ricardo Lima",
     role: "Designer",
     initials: "RL",
     bgColor: "bg-primary",
   },
   {
-    quote: "A função de metas mudou meu jogo. Economizei R$ 3k em 4 meses para minha viagem, algo que nunca tinha conseguido antes.",
+    quote: "Já tentei Mobills, Organizze e GuiaBolso. Todos iguais: bonitos mas eu nunca lembro de usar. O bot me responde na hora, não preciso mudar de app.",
     name: "Ana Silva",
     role: "Engenheira",
     initials: "AS",
     bgColor: "bg-emerald-500",
   },
   {
-    quote: "O plano casal é perfeito. Eu e minha esposa temos visibilidade total e paramos de brigar por causa de faturas inesperadas.",
+    quote: "Meu dinheiro sumia e eu não sabia pra onde. Agora o bot me avisa ANTES de acontecer — não depois que já estourou.",
     name: "Marcos Paulo",
     role: "Médico",
     initials: "MP",
