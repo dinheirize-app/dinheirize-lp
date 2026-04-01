@@ -113,7 +113,7 @@ function welcomeEmailHtml(ctaUrl: string, ctaText: string, appUrl: string) {
     .logo { color: #4ade80; font-size: 32px; font-weight: 700; }
     .content { background: #fff; padding: 32px; border: 1px solid #d4e4d5; border-top: none; border-radius: 0 0 12px 12px; }
     .promo-box { background: linear-gradient(135deg, #c9a84c 0%, #d97706 100%); color: #0a0f0d; padding: 24px; border-radius: 10px; margin: 24px 0; text-align: center; }
-    .cta-button { display: inline-block; background: #16a34a; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; margin: 20px 0; }
+    .cta-button { display: inline-block; background: #16a34a; color: #ffffff !important; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; margin: 20px 0; }
     .bonus-box { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 16px; border-radius: 8px; margin: 20px 0; }
     .footer { text-align: center; color: #6b7a6e; font-size: 12px; margin-top: 32px; }
   </style>
@@ -140,7 +140,7 @@ function welcomeEmailHtml(ctaUrl: string, ctaText: string, appUrl: string) {
       </div>
 
       <div style="text-align: center;">
-        <a href="${ctaUrl}" class="cta-button">${ctaText}</a>
+        <a href="${ctaUrl}" class="cta-button" style="color: #ffffff !important; text-decoration: none;">${ctaText}</a>
       </div>
 
       <p style="margin-top: 32px; font-size: 14px; color: #6b7a6e;">O bot WhatsApp já está funcionando. Você pode começar hoje mesmo!</p>
