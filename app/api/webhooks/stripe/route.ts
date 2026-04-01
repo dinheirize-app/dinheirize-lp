@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { createClient } from '@supabase/supabase-js'
 import { Resend } from 'resend'
+import { moveContactToCustomers } from '@/lib/resend-segments'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-03-25.dahlia',
@@ -71,6 +72,14 @@ export async function POST(request: Request) {
       console.error('❌ Erro ao salvar usuário no Supabase:', dbError)
     } else {
       console.log('✅ Usuário salvo com sucesso:', data)
+    }
+
+    // Mover contato: "Lista de Espera" -> "Clientes Ativos" no Resend
+    try {
+      await moveContactToCustomers(email)
+      console.log(`Contato movido para Clientes Ativos: ${email}`)
+    } catch (err) {
+      console.error('Erro ao mover contato no Resend:', err)
     }
 
     // Email de onboarding (#2 - Pagamento confirmado)

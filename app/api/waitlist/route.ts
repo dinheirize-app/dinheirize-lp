@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { createClient } from '@supabase/supabase-js'
+import { addContactToWaitlist } from '@/lib/resend-segments'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -66,17 +67,12 @@ export async function POST(req: NextRequest) {
       throw dbError
     }
 
-    // Adicionar ao Resend Audience (se configurado)
-    const audienceId = process.env.RESEND_AUDIENCE_ID
-    if (audienceId) {
-      try {
-        await resend.contacts.create({ email, firstName: '', audienceId })
-      } catch (err: unknown) {
-        const msg = err instanceof Error ? err.message.toLowerCase() : ''
-        if (!msg.includes('already') && !msg.includes('exists')) {
-          console.error('Resend contact error:', err)
-        }
-      }
+    // Adicionar contato no Resend + segment "Lista de Espera"
+    try {
+      await addContactToWaitlist(email, '')
+      console.log(`Contato adicionado ao Resend: ${email}`)
+    } catch (err) {
+      console.error('Resend contact error:', err)
     }
 
     // Enviar email de boas-vindas (#1)
