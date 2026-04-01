@@ -10,6 +10,7 @@ export function EmailCaptureCTA() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +32,13 @@ export function EmailCaptureCTA() {
 
       if (data.success) {
         setStatus("success");
+        setSuccessMessage(data.message || "Tudo certo! Redirecionando...");
+        const submittedEmail = email;
         setEmail("");
+        const redirectTo = data.redirectTo || "/checkout";
+        setTimeout(() => {
+          window.location.href = `${redirectTo}?email=${encodeURIComponent(submittedEmail)}`;
+        }, 2000);
       } else {
         setStatus("error");
       }
@@ -69,7 +76,7 @@ export function EmailCaptureCTA() {
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="max-w-md mx-auto pt-2"
+            className="max-w-lg mx-auto pt-2"
             noValidate
           >
             {status === "success" ? (
@@ -77,8 +84,8 @@ export function EmailCaptureCTA() {
                 role="alert"
                 className="flex items-center justify-center gap-3 bg-primary/10 border border-primary/20 rounded-xl px-6 py-4 text-foreground font-medium"
               >
-                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />✓
-                Você está na lista! Avisaremos em primeiro lugar.
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                {successMessage || "Tudo certo! Redirecionando..."}
               </div>
             ) : (
               <div className="flex flex-col sm:flex-row gap-3">
@@ -99,7 +106,7 @@ export function EmailCaptureCTA() {
                   type="submit"
                   disabled={status === "loading"}
                   className="bg-primary text-[#003914] font-black px-6 py-4 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap disabled:opacity-60 flex items-center justify-center gap-2"
-                  aria-label="Garantir minha vaga grátis na lista de espera"
+                  aria-label="Começar agora no Dinheirize"
                 >
                   {status === "loading" ? (
                     <>
@@ -110,7 +117,7 @@ export function EmailCaptureCTA() {
                       Enviando...
                     </>
                   ) : (
-                    "Garantir minha vaga grátis"
+                    "Começar agora →"
                   )}
                 </button>
               </div>
@@ -122,6 +129,11 @@ export function EmailCaptureCTA() {
               </p>
             )}
           </form>
+
+          {/* VIP Incentive */}
+          <p className="text-sm text-[#C9A84C] font-semibold">
+            💎 Primeiros 200: R$9,90/mês por 3 meses + Bônus Essencial grátis
+          </p>
         </div>
       </div>
     </section>
