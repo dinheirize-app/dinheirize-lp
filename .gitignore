@@ -1,16 +1,149 @@
-# v0 sandbox internal files
+# ============================================
+# DINHEIRIZE - GITIGNORE COMPLETO
+# ============================================
+
+# ──────────────────────────────────────────
+# ENVIRONMENT VARIABLES (CRÍTICO!)
+# ──────────────────────────────────────────
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+
+# ──────────────────────────────────────────
+# DEPENDENCIES
+# ──────────────────────────────────────────
+node_modules/
+/.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# ──────────────────────────────────────────
+# NEXT.JS
+# ──────────────────────────────────────────
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# ──────────────────────────────────────────
+# VERCEL
+# ──────────────────────────────────────────
+.vercel
+.vercel/
+
+# ──────────────────────────────────────────
+# V0 SANDBOX (específico do projeto)
+# ──────────────────────────────────────────
 __v0_runtime_loader.js
 __v0_devtools.tsx
 __v0_jsx-dev-runtime.ts
 .snowflake/
 .v0-trash/
-.vercel/
 next.user-config.*
 
-# Environment variables
-.env*.local
+# ──────────────────────────────────────────
+# TESTING
+# ──────────────────────────────────────────
+coverage/
+.nyc_output
+*.lcov
+.jest/
 
-# Common ignores
-node_modules
-.next/
+# ──────────────────────────────────────────
+# DEBUG & LOGS
+# ──────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+# ──────────────────────────────────────────
+# TYPESCRIPT
+# ──────────────────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
+
+# ──────────────────────────────────────────
+# SISTEMA OPERACIONAL
+# ──────────────────────────────────────────
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ──────────────────────────────────────────
+# IDEs & EDITORS
+# ──────────────────────────────────────────
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains (WebStorm, etc)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ──────────────────────────────────────────
+# MISC
+# ──────────────────────────────────────────
+*.pem
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# ──────────────────────────────────────────
+# TEMPORARY FILES
+# ──────────────────────────────────────────
+*.tmp
+*.temp
+.cache/
+.temp/
+tmp/
+
+# ──────────────────────────────────────────
+# SENSITIVE DATA (EXTRA PROTEÇÃO)
+# ──────────────────────────────────────────
+# Nunca commitar secrets, mesmo que em nomes diferentes
+*secret*
+*private*
+*credentials*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Excluir da regra acima arquivos legítimos do Next.js
+!public/**
+!src/**
+!app/**
+!components/**
