@@ -146,6 +146,11 @@
   body {
     @apply bg-background text-foreground antialiased;
   }
+  button,
+  a,
+  [role="button"] {
+    cursor: pointer;
+  }
 }
 
 /* Fade-in animation */
