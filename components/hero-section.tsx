@@ -63,7 +63,8 @@ export function HeroSection() {
           {/* VIP Incentive */}
           <div className="px-4 py-3 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/30 space-y-1">
             <p className="text-sm text-[#C9A84C] font-semibold">
-              💎 <strong>Primeiros 200:</strong> R$9,90/mês por 3 meses (depois R$14,90)
+              💎 <strong>Primeiros 200:</strong> R$9,90/mês por 3 meses (depois
+              R$14,90)
             </p>
             <p className="text-xs text-[#C9A84C]/80">
               + Bônus: 3 meses grátis do Essencial quando lançar em Maio
@@ -93,7 +94,7 @@ export function HeroSection() {
                 ))}
               </div>
               <span className="text-sm font-bold text-white">
-                247 pessoas na lista de espera
+                147 pessoas na lista de espera
               </span>
             </div>
 
