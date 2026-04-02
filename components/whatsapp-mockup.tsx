@@ -19,19 +19,24 @@ export function WhatsAppMockup() {
         
         {/* Chat Content */}
         <div className="p-4 space-y-4 h-[500px] overflow-y-auto bg-[#0F1412]">
-          {/* Bot Message */}
-          <div className="bg-[#181D1A] p-3 rounded-2xl rounded-tl-none text-xs text-foreground max-w-[85%] border border-white/5">
-            Oi! Notei que você gastou R$ 45,00 no iFood hoje. Isso representa 12% do seu orçamento mensal de lazer. Quer que eu ajuste as metas?
-          </div>
-          
-          {/* User Message */}
+          {/* User Message 1 */}
           <div className="bg-primary/20 p-3 rounded-2xl rounded-tr-none text-xs text-white max-w-[85%] ml-auto border border-primary/20">
-            Pode ajustar! E me mostre quanto falta para a minha viagem.
+            gastei 45 no almoço
           </div>
-          
-          {/* Bot Response */}
-          <div className="bg-[#181D1A] p-3 rounded-2xl rounded-tl-none text-xs text-foreground max-w-[85%] border border-white/5">
-            Feito! Você já poupou 65% do valor (R$ 1.300/R$ 2.000). Se continuar assim, bate a meta em 45 dias!
+
+          {/* Bot Response 1 */}
+          <div className="bg-[#181D1A] p-3 rounded-2xl rounded-tl-none text-xs text-foreground max-w-[85%] border border-white/5 whitespace-pre-line">
+            {"✓ Alimentação · R$45,00 · +10 XP 🎯\n⏱ Equivale a 1h26min do seu trabalho\nStreak: 7 dias 🔥\nRegistrado! Continue assim 💪"}
+          </div>
+
+          {/* User Message 2 */}
+          <div className="bg-primary/20 p-3 rounded-2xl rounded-tr-none text-xs text-white max-w-[85%] ml-auto border border-primary/20">
+            torrei 80 numa besteira
+          </div>
+
+          {/* Bot Response 2 */}
+          <div className="bg-[#181D1A] p-3 rounded-2xl rounded-tl-none text-xs text-foreground max-w-[85%] border border-white/5 whitespace-pre-line">
+            {"✓ Outros · R$80,00 · +10 XP 🎯\n⏱ Equivale a 2h34min do seu trabalho\n\nFaz parte! O importante é ter consciência 😉\n+10 XP pela honestidade 🎯\n\n\"O segredo não é ganhar mais, é ser dono do que já ganha.\" — George S. Clason"}
           </div>
         </div>
         

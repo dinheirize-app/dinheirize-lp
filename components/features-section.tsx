@@ -29,6 +29,24 @@ const features = [
       { label: "Dashboard visual: Maio 2026", type: "soon" as const },
     ],
   },
+  {
+    emoji: "📋",
+    title: "Checklist de contas",
+    description:
+      "Cadastre suas contas fixas e o bot te lembra 3 dias antes, 1 dia antes e no dia do vencimento. Pagou no prazo? +25 XP.",
+    badges: [
+      { label: "Já disponível no bot", type: "available" as const },
+    ],
+  },
+  {
+    emoji: "💬",
+    title: "Onboarding em 2 minutos",
+    description:
+      "Sem formulário, sem cadastro chato. Você conversa com o bot, conta seu salário e suas contas, e ele configura tudo sozinho.",
+    badges: [
+      { label: "Já disponível no bot", type: "available" as const },
+    ],
+  },
 ]
 
 export function FeaturesSection() {
@@ -42,8 +60,8 @@ export function FeaturesSection() {
         </h2>
       </div>
 
-      {/* 2×2 Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {/* 3×2 Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature) => (
           <Card
             key={feature.title}
