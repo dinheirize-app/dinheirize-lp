@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -18,7 +19,10 @@ export function Navigation() {
     <nav className="fixed top-0 w-full z-50 h-16 bg-[#0A0F0D]/80 backdrop-blur-xl border-b border-white/5">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-full">
         {/* Brand */}
-        <Link href="/" className="text-2xl font-black tracking-tighter text-white">
+        <Link href="/" className="flex items-center gap-2 text-2xl font-black tracking-tighter text-white">
+          <div className="w-8 h-8 overflow-hidden flex-shrink-0">
+              <Image src="/dinheirize-logo.png" alt="Dinheirize logo" width={32} height={32} className="w-full h-full object-cover scale-[1.35]" />
+            </div>
           Dinheirize
         </Link>
 

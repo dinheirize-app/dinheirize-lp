@@ -30,14 +30,6 @@ export const metadata: Metadata = {
     description:
       'Controle suas finanças pelo WhatsApp com IA. Gamificação real, missões diárias e alertas inteligentes. Grátis para começar.',
   },
-  icons: {
-    icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
