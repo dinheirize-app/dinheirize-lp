@@ -2,16 +2,21 @@ import Link from "next/link"
 import { Mail } from "lucide-react"
 
 const productLinks = [
-  { label: "Como funciona", href: "#how-it-works" },
-  { label: "Recursos", href: "#features" },
-  { label: "Planos", href: "#pricing" },
-  { label: "Entrar na lista", href: "#waitlist" },
+  { label: "Como funciona", href: "/#how-it-works" },
+  { label: "Recursos", href: "/#features" },
+  { label: "Planos", href: "/#pricing" },
+  { label: "Entrar na lista", href: "/#waitlist" },
+]
+
+const legalLinks = [
+  { label: "Privacidade", href: "/privacidade" },
+  { label: "Termos de Uso", href: "/termos" },
 ]
 
 export function Footer() {
   return (
     <footer className="bg-[#060A07] w-full py-12 px-6 border-t border-[#3E4A3D]/20 mt-20">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto text-sm text-[#6B7A6E]">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto text-sm text-[#6B7A6E]">
         {/* Brand Column */}
         <div className="space-y-4">
           <Link href="/" className="text-lg font-bold text-[#FAFCF9]">
@@ -27,6 +32,20 @@ export function Footer() {
         <div className="flex flex-col gap-4">
           <h5 className="text-[#FAFCF9] font-bold">Produto</h5>
           {productLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="hover:text-primary transition-colors w-fit"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Legal Links */}
+        <div className="flex flex-col gap-4">
+          <h5 className="text-[#FAFCF9] font-bold">Legal</h5>
+          {legalLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}

@@ -87,7 +87,7 @@ export function PricingSection() {
               "flex-shrink-0 w-[280px] md:w-auto snap-center p-8 rounded-2xl flex flex-col relative",
               plan.featured
                 ? "border-2 border-primary bg-[#262B29] shadow-2xl shadow-primary/10 md:scale-105 md:z-10"
-                : plan.status === "soon" || plan.status === "development"
+                : plan.status === "soon"
                   ? "border border-[#3E4A3D]/20 bg-card opacity-85"
                   : "border border-[#3E4A3D]/20 bg-card"
             )}
@@ -141,9 +141,7 @@ export function PricingSection() {
                   "inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full mb-4 w-fit",
                   plan.status === "available"
                     ? "bg-primary/10 text-primary border border-primary/20"
-                    : plan.status === "soon"
-                      ? "bg-[#D97706]/10 text-[#D97706] border border-[#D97706]/20"
-                      : "bg-[#7C3AED]/10 text-[#7C3AED] border border-[#7C3AED]/20"
+                    : "bg-[#D97706]/10 text-[#D97706] border border-[#D97706]/20"
                 )}
               >
                 {plan.statusLabel}
