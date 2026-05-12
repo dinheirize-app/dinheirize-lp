@@ -11,6 +11,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dinheirize.com'),
   title: 'Dinheirize — O copiloto financeiro no WhatsApp',
   description:
     'Controle suas finanças pelo WhatsApp com IA. Gamificação real, missões diárias e alertas inteligentes. Grátis para começar.',
@@ -23,12 +24,21 @@ export const metadata: Metadata = {
     siteName: 'Dinheirize',
     locale: 'pt_BR',
     type: 'website',
+    images: [
+      {
+        url: '/dinheirize-logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Dinheirize — Dz, o mascote do copiloto financeiro',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Dinheirize — Finalmente no controle do seu dinheiro',
     description:
       'Controle suas finanças pelo WhatsApp com IA. Gamificação real, missões diárias e alertas inteligentes. Grátis para começar.',
+    images: ['/dinheirize-logo.png'],
   },
 }
 

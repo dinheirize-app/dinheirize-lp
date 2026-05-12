@@ -37,7 +37,7 @@ const plans = [
       { text: "Score Dinheirize", available: true },
     ],
     featured: true,
-    badge: "Mais Popular",
+    badge: "Comece por aqui",
     buttonText: "Assinar agora",
     buttonHref: "#waitlist",
     status: "available" as const,
@@ -51,13 +51,9 @@ const plans = [
     period: "/mês",
     savingsBadge: "33% mais barato que a concorrência",
     features: [
-      { text: "Tudo do WhatsApp +", available: true, bold: true as const },
-      { text: "Dashboard web", available: false },
-      { text: "App mobile (PWA)", available: false },
-      { text: "Score Dinheirize visual", available: false },
-      { text: "Ligas até Esmeralda", available: false },
-      { text: "Gráficos e relatórios", available: false },
-      { text: "Histórico ilimitado", available: false },
+      { text: "Tudo do plano WhatsApp", available: true, bold: true as const },
+      { text: "Dashboard web + app mobile (PWA)", available: false },
+      { text: "Gráficos, ligas e histórico ilimitado", available: false },
     ],
     featured: false,
     buttonText: "Notificar quando lançar",
@@ -65,25 +61,6 @@ const plans = [
     status: "soon" as const,
     statusLabel: "🔜 Lançamento: Maio 2026",
     incentive: "💎 Entre na lista e ganhe 3 meses grátis no lançamento",
-  },
-  {
-    label: "Para dois",
-    name: "Casal",
-    price: "49,90",
-    period: "/mês",
-    features: [
-      { text: "2 perfis conectados", available: false },
-      { text: "Dashboard conjunto", available: false },
-      { text: "Contas compartilhadas", available: false },
-      { text: "Lembrete para os dois", available: false },
-      { text: "Missões em dupla", available: false },
-      { text: "Visão consolidada", available: false },
-    ],
-    featured: false,
-    buttonText: "Lista de espera",
-    buttonHref: "#waitlist",
-    status: "development" as const,
-    statusLabel: "🔜 Em desenvolvimento",
   },
 ]
 
@@ -102,7 +79,7 @@ export function PricingSection() {
       </div>
 
       {/* Cards — scroll horizontal no mobile */}
-      <div className="flex flex-nowrap overflow-x-auto pb-4 md:grid md:grid-cols-4 md:overflow-visible gap-4 md:gap-6 items-stretch snap-x snap-mandatory">
+      <div className="flex flex-nowrap overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible gap-4 md:gap-6 items-stretch snap-x snap-mandatory">
         {plans.map((plan) => (
           <div
             key={plan.name}
@@ -219,6 +196,23 @@ export function PricingSection() {
             )}
           </div>
         ))}
+      </div>
+
+      {/* Teaser de plano futuro */}
+      <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-muted-foreground">
+        <span className="inline-flex items-center gap-2">
+          <span className="text-[#7C3AED]">💞</span>
+          <span>
+            <strong className="text-foreground">Plano Casal</strong> em
+            desenvolvimento (2 perfis + dashboard conjunto)
+          </span>
+        </span>
+        <a
+          href="#waitlist"
+          className="text-primary font-semibold hover:underline"
+        >
+          Me avise quando lançar →
+        </a>
       </div>
     </section>
   )

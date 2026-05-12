@@ -1,13 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowRight, Shield, MessageCircle, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppMockup } from "@/components/whatsapp-mockup";
+import { getWaitlistCount, getRemainingSpots, WAITLIST_CAP } from "@/lib/waitlist-count";
 
-const AVATAR_COUNT = 5;
+const WAITLIST_AVATARS = [
+  { initials: "RL", className: "bg-primary text-[#003914]" },
+  { initials: "AS", className: "bg-emerald-500 text-white" },
+  { initials: "MP", className: "bg-purple-500 text-white" },
+  { initials: "JC", className: "bg-blue-500 text-white" },
+  { initials: "FM", className: "bg-[#C9A84C] text-[#0A0F0D]" },
+] as const;
 
 export function HeroSection() {
+  const waitlistCount = getWaitlistCount();
+  const remaining = getRemainingSpots();
+  const progressPct = Math.round((waitlistCount / WAITLIST_CAP) * 100);
+
   return (
     <section className="pt-36 pb-20 px-6 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -73,29 +83,40 @@ export function HeroSection() {
 
           {/* Social Proof */}
           <div className="pt-2 space-y-4">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <div className="flex -space-x-3">
-                {Array.from({ length: AVATAR_COUNT }).map((_, i) => (
+                {WAITLIST_AVATARS.map((avatar) => (
                   <div
-                    key={i}
-                    className="w-10 h-10 rounded-full border-2 border-[#0A0F0D] bg-primary/20 flex items-center justify-center text-xs font-bold text-primary overflow-hidden"
+                    key={avatar.initials}
+                    className={`w-10 h-10 rounded-full border-2 border-[#0A0F0D] flex items-center justify-center text-xs font-extrabold ${avatar.className}`}
                     aria-hidden="true"
                   >
-                    <Image
-                      src="/placeholder-user.jpg"
-                      alt=""
-                      width={40}
-                      height={40}
-                      className="object-cover"
-                      priority={i === 0}
-                      loading={i === 0 ? undefined : "lazy"}
-                    />
+                    {avatar.initials}
                   </div>
                 ))}
               </div>
               <span className="text-sm font-bold text-white">
-                147 pessoas na lista de espera
+                +{waitlistCount} já garantiram a vaga
               </span>
+            </div>
+
+            {/* Progress bar — vagas R$9,90 */}
+            <div className="space-y-1.5">
+              <div className="flex justify-between text-[11px] font-semibold">
+                <span className="text-muted-foreground">
+                  Vagas R$9,90/mês
+                </span>
+                <span className="text-primary">
+                  {waitlistCount}/{WAITLIST_CAP} ·{" "}
+                  {remaining > 0 ? `${remaining} restando` : "esgotadas"}
+                </span>
+              </div>
+              <div className="h-1.5 w-full rounded-full bg-white/5 overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-primary to-[#4ADE80] transition-all duration-700"
+                  style={{ width: `${progressPct}%` }}
+                />
+              </div>
             </div>
 
             {/* Trust Badges */}
