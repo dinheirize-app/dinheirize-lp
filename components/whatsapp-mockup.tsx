@@ -9,10 +9,10 @@ export function WhatsAppMockup() {
         {/* WhatsApp Top Bar */}
         <div className="bg-[#075E54] p-4 flex items-center gap-3">
           <div className="w-12 h-12 rounded-full overflow-hidden bg-black flex-shrink-0">
-              <img src="/dinheirize-logo.png" alt="Dinheirize" className="w-full h-full object-cover scale-[1.35]" />
+              <img src="/dinheirize-logo.png" alt="Dinheirize" className="w-full h-full object-cover" />
             </div>
           <div>
-            <p className="text-sm font-bold text-white">Dinheirize IA</p>
+            <p className="text-sm font-bold text-white">Dz</p>
             <p className="text-[10px] text-white/70">Online agora</p>
           </div>
         </div>

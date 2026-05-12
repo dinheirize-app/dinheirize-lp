@@ -20,8 +20,8 @@ export function Navigation() {
       <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-full">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 text-2xl font-black tracking-tighter text-white">
-          <div className="w-8 h-8 overflow-hidden flex-shrink-0">
-              <Image src="/dinheirize-logo.png" alt="Dinheirize logo" width={32} height={32} className="w-full h-full object-cover scale-[1.35]" />
+          <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+              <Image src="/dinheirize-logo.png" alt="Dinheirize logo" width={32} height={32} className="w-full h-full object-cover" />
             </div>
           Dinheirize
         </Link>
